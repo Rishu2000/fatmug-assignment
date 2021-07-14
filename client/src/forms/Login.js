@@ -15,7 +15,7 @@ const Login = () => {
                     <h6>Not a member yet</h6>
                 </div>
                 <div style={{margin:"30px 0 50px 0", textAlign:"center"}}>
-                    <button style={{textDecoration:"none", width:"150px", backgroundColor:"grey", color:"white", border:"none", borderRadius:"2px", height:45}}>Register</button>
+                    <button style={{textDecoration:"none", width:"150px", backgroundColor:"grey", color:"white", border:"none", borderRadius:"2px", height:45}}>Login</button>
                 </div>
             </div>
         </div>
