@@ -1,5 +1,4 @@
 import React from 'react'
-import FormInput from './FormInput'
 import {Link} from 'react-router-dom'
 
 const Login = () => {
@@ -8,8 +7,16 @@ const Login = () => {
             <div style={{padding:"20px 40px", backgroundColor: 'white', borderRadius:5}}>
                 <Link to="/register" style={{textDecoration: "none"}}>Create a new Account</Link>
                 <h1 style={{textAlign: 'center', marginBottom:40}}>Login</h1>
-                <FormInput formType="email"/>
-                <FormInput formType="password"/>
+                <form>
+                    <div className="mb-4" style={{width:"500px"}}>
+                        <input type="email" className="form-control mb-4" placeholder="Email" //value={email}
+                            // onChange={(e) => setEmail(e.target.value)}
+                            />
+                        <input type="password" className="form-control mb-4" placeholder="Password" //value={password}
+                            // onChange={(e) => setPassword(e.target.value)}
+                            />
+                    </div>
+                </form>
                 <div style={{display: 'flex', justifyContent:'space-between'}}>
                     <h6>Forgot Password</h6>
                     <h6>Not a member yet</h6>
