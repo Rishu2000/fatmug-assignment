@@ -35,9 +35,10 @@ app.post('/login', (req,res) => {
             if(rows.length === 1) {
                 rows.map((row) => {
                     console.log(row)
-                })
-                res.status(200).json({
-                    "Authintication":true
+                    res.status(200).json({
+                        "Authintication":true,
+                        "name":row.name
+                    })
                 })
             }else{
                 res.status(401).json({

@@ -10,19 +10,20 @@ function App() {
   const [auth, setAuth] = useState(false);
   const [loginFunRun, setLoginFunRun] = useState(false);
   const [regError, setRegError] = useState(false);
+  const [userName, setUserName] = useState('');
 
   return (
   <Router>
     <Switch>
       <Route path="/register">
-        <Register setAuth={setAuth} setRegError={setRegError}/>
+        <Register setAuth={setAuth} setRegError={setRegError} setUserName={setUserName}/>
       </Route>
       <Route path="/login">
-        <Login auth={auth} setAuth={setAuth} setLoginFunRun={setLoginFunRun}/>
+        <Login auth={auth} setAuth={setAuth} setLoginFunRun={setLoginFunRun} setUserName={setUserName}/>
       </Route>
       <Route path="/">
         {auth?(
-          <LandingPage/>
+          <LandingPage userName={userName} setAuth={setAuth} setLoginFunRun={setLoginFunRun}/>
         ):
         (
         <div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'       //Implemented axios functionality.
 import {Link} from 'react-router-dom'
 
-const Register = ({setAuth, setRegError}) => {
+const Register = ({setAuth, setRegError, setUserName}) => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -30,6 +30,7 @@ const Register = ({setAuth, setRegError}) => {
             axios(config)
             .then(function (response) {
                 setRegError(false);
+                setUserName(name);
                 setAuth(response.data.Authintication)
                 console.log(JSON.stringify(response.data));
             })

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
-const Login = ({auth, setAuth, setLoginFunRun}) => {
+const Login = ({auth, setAuth, setLoginFunRun, setUserName}) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,6 +26,7 @@ const Login = ({auth, setAuth, setLoginFunRun}) => {
         console.log("metrun")
         axios(config)
             .then((res) =>{
+                setUserName(res.data.name);
                 setAuth(res.data.Authintication)
                 console.log(auth)
             })
