@@ -14,8 +14,16 @@ const MainContent = () => {
                 <div style={{marginRight: 10}}>Read More.</div>
                 <div>7 min read</div>
             </div>
-            <div style={{margin:"30px 0 60px 0", width:"100%", height:"400px"}}>
+            <div style={{marginTop:30, width:"100%", height:"400px"}}>
                 <img src={item.image} alt="No Image Found" width="100%" height="100%"/>
+            </div>
+            <div style={{margin:"30px 0", display: 'flex'}}>
+                <div style={{fontWeight:700, paddingRight:5}}>
+                    {item.author}
+                </div> in 
+                <div style={{fontWeight:700, paddingLeft:5}}>
+                    {item.from}
+                </div>
             </div>
             </div>
             ))}
