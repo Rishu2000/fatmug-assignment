@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {data} from "../data/articleData"
 
 const MainContent = () => {
@@ -6,12 +7,16 @@ const MainContent = () => {
         <div style={{margin:"0 30px"}}>
             {data.map((item, index) => (
                 <div>
-            <h1>{index+1}. {item.articleName}</h1>
+            <Link to={`/${item.articleName.toLowerCase()}`} style={{textDecoration: "none", color:"black"}}>
+                <h1>{index+1}. {item.articleName}</h1>
+            </Link>
             <div style={{fontSize:20}}>
                 {item.discription}
             </div>
             <div style={{display: 'flex', justifyContent: 'flex-end', marginTop:15, fontWeight:600, fontSize:20}}>
+            <Link to={`/${item.articleName.toLowerCase()}`} style={{textDecoration: "none", color:"black"}}>
                 <div style={{marginRight: 10}}>Read More.</div>
+            </Link>
                 <div>7 min read</div>
             </div>
             <div style={{marginTop:30, width:"100%", height:"400px"}}>
