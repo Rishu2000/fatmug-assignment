@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'       //Implemented axios functionality.
 import {Link} from 'react-router-dom'
 
-const Register = () => {
+const Register = ({setAuth, setRegError}) => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ const Register = () => {
     
     let config = {
         method:'POST',
-        url:'http://localhost:3001/',
+        url:'http://localhost:3001/register',
         headers: { 
             'Content-Type': 'application/json'
         },
@@ -29,9 +29,12 @@ const Register = () => {
         if(password === confirmPass) {
             axios(config)
             .then(function (response) {
+                setRegError(false);
+                setAuth(response.data.Authintication)
                 console.log(JSON.stringify(response.data));
             })
             .catch(function (err) {
+                setRegError(true)
                 console.log(err)
             })
         }
@@ -62,10 +65,12 @@ const Register = () => {
                     <h6>Not a member yet</h6>
                 </div>
                 <div style={{margin:"30px 0 50px 0", textAlign:"center"}}>
-                    <button style={{textDecoration:"none", width:"150px", backgroundColor:"grey", color:"white", border:"none", borderRadius:"2px", height:45}}
-                        onClick={handleRegister}
-                    >Register
-                    </button>
+                    <Link to="/">
+                        <button style={{textDecoration:"none", width:"150px", backgroundColor:"grey", color:"white", border:"none", borderRadius:"2px", height:45}}
+                            onClick={handleRegister}
+                        >Register
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

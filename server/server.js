@@ -13,12 +13,43 @@ const knex = require('knex')({
 app.get('/', (req,res) => {
     res.json("server is on")
 })
-app.post('/', (req,res) => {
-    res.json(req.body)
+app.post('/register', (req,res) => {
     knex('example_db_table')
         .insert({name: req.body.name, password: req.body.password, email: req.body.email})
         .then(() =>{
+            res.status(200).json({
+                "Authintication":true
+            })
             console.log("Data has been inserted successfully.")
+        })
+        .catch(err =>{
+            res.status(402).json({
+                "Authintication":false
+            })
+        })
+})
+app.post('/login', (req,res) => {
+    knex('example_db_table')
+        .where({email: req.body.email, password: req.body.password})
+        .then((rows) => {
+            if(rows.length === 1) {
+                rows.map((row) => {
+                    console.log(row)
+                })
+                res.status(200).json({
+                    "Authintication":true
+                })
+            }else{
+                res.status(401).json({
+                    "Authintication":false
+                })
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+            res.json({
+                "Authintication":true
+            })
         })
 })
 
