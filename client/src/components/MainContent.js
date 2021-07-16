@@ -18,12 +18,8 @@ const MainContent = () => {
                 <img src={item.image} alt="No Image Found" width="100%" height="100%"/>
             </div>
             <div style={{margin:"30px 0", display: 'flex'}}>
-                <div style={{fontWeight:700, paddingRight:5}}>
-                    {item.author}
-                </div> in 
-                <div style={{fontWeight:700, paddingLeft:5}}>
-                    {item.from}
-                </div>
+                                <div style={{padding:10, marginRight:10, border:"1px solid gray", borderRadius:"50%", width:20, height:20, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>i</div>
+                <div><strong>{item.author}</strong> in <strong>{item.from}</strong></div>
             </div>
             </div>
             ))}
