@@ -14,7 +14,7 @@ const Login = ({auth, setAuth, setLoginFunRun, setUserName}) => {
 
     let config = {
         method: 'POST',
-        url:'http://localhost:3001/login',
+        url:'https://fatmug-ass.herokuapp.com/login',      //https://fatmug-ass.herokuapp.com
         headers: {
             'Content-Type': 'application/json'
         },

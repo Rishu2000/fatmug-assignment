@@ -18,7 +18,7 @@ const Register = ({setAuth, setRegError, setUserName}) => {
     
     let config = {
         method:'POST',
-        url:'http://localhost:3001/register',
+        url:'https://fatmug-ass.herokuapp.com/register',       //https://fatmug-ass.herokuapp.com
         headers: { 
             'Content-Type': 'application/json'
         },
